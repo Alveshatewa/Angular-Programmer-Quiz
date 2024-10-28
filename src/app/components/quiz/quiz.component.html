@@ -1,0 +1,38 @@
+<div class="quiz_container">
+
+    <div class="quiz_logo">
+
+        <h1> Programmer Quiz</h1>
+
+        <h3> {{ title }}</h3>
+
+        
+    </div>
+
+    <div *ngIf="!finishedGame" class="quiz_questions">
+
+        <h3>{{ selectedQuestion.question}}</h3>
+
+    </div>
+
+    <div *ngIf="!finishedGame"  class="quiz_options">
+
+        <button *ngFor="let option of selectedQuestion.options"
+        (click) = "ButtonPressed(option.alias)"  class="btn-options">
+
+           {{ option.name }}
+
+        </button>
+
+    </div>
+
+    <div *ngIf="finishedGame" class="quiz_results" >
+
+        <h1> Seu Resultado:</h1>
+
+        <p> {{selectedAnswer}}</p>
+
+        <button (click)="back()" class="btn-back"> Voltar para o inicio</button>
+    </div>
+
+</div>
